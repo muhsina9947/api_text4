@@ -1,5 +1,7 @@
+import 'package:api_text4/UI/loginpage.dart';
 import 'package:api_text4/bloc/bloc/bloc/get_translate_model_bloc.dart';
 import 'package:api_text4/bloc/bloc/get_languages_model_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/services.dart';
@@ -23,7 +25,7 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
   late FlutterTts flutterTts;
 
   String translatedText = "";
-   String untranslatedText = "";
+  String untranslatedText = "";
   bool isListening = false;
 
   @override
@@ -115,6 +117,20 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
         backgroundColor: Colors.blue,
         elevation: 0,
         title: const Text("Language Translator"),
+
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () async {
+              await FirebaseAuth.instance.signOut();
+
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const Loginpage()),
+              );
+            },
+          ),
+        ],
       ),
 
       body: Container(
@@ -139,7 +155,7 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                         /// FROM
                         Text(
                           getLangName(languages, fromLang),
-                          style: const TextStyle(fontSize: 36),
+                          style: const TextStyle(fontSize: 36,fontWeight: FontWeight.bold,),
                         ),
 
                         /// SWAP
@@ -226,9 +242,7 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                           decoration: const InputDecoration(
                             hintText: "Enter text",
                             border: InputBorder.none,
-                            
                           ),
-                          
                         ),
                       ],
                     ),
