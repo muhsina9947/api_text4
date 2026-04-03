@@ -1,4 +1,5 @@
 // import 'package:api_text4/UI/signup.dart';
+import 'package:api_text4/UI/phoneloginpage.dart';
 import 'package:api_text4/UI/signuppage.dart';
 import 'package:api_text4/UI/translatorscreen.dart';
 import 'package:flutter/material.dart';
@@ -242,6 +243,25 @@ class _LoginpageState extends State<Loginpage> {
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
+                          ),
+                        ),
+                      ),
+
+                      const SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (_) => const Phoneloginpage(),
+                            ),
+                          );
+                        },
+                        child: Text(
+                          "Continue with phone number",
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),
