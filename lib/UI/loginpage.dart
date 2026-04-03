@@ -20,7 +20,6 @@ class _LoginpageState extends State<Loginpage> {
   bool isPasswordVisible = false;
   bool isLoading = false;
 
-  /// 🔥 EMAIL LOGIN
   Future<void> login() async {
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       ScaffoldMessenger.of(
@@ -56,7 +55,6 @@ class _LoginpageState extends State<Loginpage> {
     setState(() => isLoading = false);
   }
 
-  /// 🔥 GOOGLE LOGIN
   Future<void> signInWithGoogle() async {
     try {
       GoogleAuthProvider authProvider = GoogleAuthProvider();
@@ -79,7 +77,6 @@ class _LoginpageState extends State<Loginpage> {
     super.dispose();
   }
 
-  /// 🔹 TEXTFIELD
   Widget buildTextField({
     required IconData icon,
     required String hint,
@@ -105,7 +102,8 @@ class _LoginpageState extends State<Loginpage> {
               obscureText: isPassword ? !isPasswordVisible : false,
               decoration: InputDecoration(
                 hintText: hint,
-                hintStyle: const TextStyle(color: Colors.black), // ✅ hint black
+                hintStyle: const TextStyle(color: Colors.black),
+
                 border: InputBorder.none,
               ),
             ),
@@ -131,7 +129,6 @@ class _LoginpageState extends State<Loginpage> {
         width: double.infinity,
         height: double.infinity,
 
-        /// 🔥 GRADIENT
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF36D1DC), Color(0xFF5B86E5)],
@@ -167,7 +164,6 @@ class _LoginpageState extends State<Loginpage> {
 
                 const SizedBox(height: 40),
 
-                /// WHITE CARD
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -194,7 +190,6 @@ class _LoginpageState extends State<Loginpage> {
 
                       const SizedBox(height: 30),
 
-                      /// LOGIN BUTTON
                       GestureDetector(
                         onTap: isLoading ? null : login,
                         child: Container(
@@ -224,7 +219,6 @@ class _LoginpageState extends State<Loginpage> {
 
                       const SizedBox(height: 20),
 
-                      /// GOOGLE BUTTON
                       GestureDetector(
                         onTap: signInWithGoogle,
                         child: Container(
@@ -268,7 +262,6 @@ class _LoginpageState extends State<Loginpage> {
 
                       const SizedBox(height: 20),
 
-                      /// SIGNUP NAVIGATION
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [

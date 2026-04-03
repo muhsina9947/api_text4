@@ -17,7 +17,8 @@ class _SignupPageState extends State<SignupPage> {
   bool isPasswordVisible = false;
   bool isLoading = false;
 
-  /// 🔥 EMAIL SIGNUP
+ 
+ 
   Future<void> signUp() async {
     if (emailController.text.isEmpty || passwordController.text.isEmpty) {
       ScaffoldMessenger.of(
@@ -69,7 +70,8 @@ class _SignupPageState extends State<SignupPage> {
     setState(() => isLoading = false);
   }
 
-  /// 🔥 GOOGLE SIGN IN
+  
+  
   Future<void> signInWithGoogle() async {
     try {
       GoogleAuthProvider authProvider = GoogleAuthProvider();
@@ -85,7 +87,8 @@ class _SignupPageState extends State<SignupPage> {
     }
   }
 
-  /// 🔹 TEXTFIELD
+ 
+ 
   Widget buildTextField({
     required IconData icon,
     required String hint,
@@ -146,7 +149,8 @@ class _SignupPageState extends State<SignupPage> {
         width: double.infinity,
         height: double.infinity,
 
-        /// 🔥 GRADIENT BACKGROUND
+      
+      
         decoration: const BoxDecoration(
           gradient: LinearGradient(
             colors: [Color(0xFF36D1DC), Color(0xFF5B86E5)],
@@ -175,7 +179,8 @@ class _SignupPageState extends State<SignupPage> {
 
                 const SizedBox(height: 40),
 
-                /// WHITE CARD
+             
+             
                 Container(
                   padding: const EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -202,7 +207,8 @@ class _SignupPageState extends State<SignupPage> {
 
                       const SizedBox(height: 30),
 
-                      /// SIGNUP BUTTON
+                    
+                    
                       GestureDetector(
                         onTap: isLoading ? null : signUp,
                         child: Container(
@@ -251,7 +257,8 @@ class _SignupPageState extends State<SignupPage> {
 
                       const SizedBox(height: 20),
 
-                      /// GOOGLE BUTTON
+                    
+                    
                       GestureDetector(
                         onTap: signInWithGoogle,
                         child: Container(

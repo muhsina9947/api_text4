@@ -46,13 +46,15 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
     super.dispose();
   }
 
-  /// 🔊 SPEAK
+  
+  
   Future speak(String text) async {
     await flutterTts.setLanguage(toLang);
     await flutterTts.speak(text);
   }
 
-  /// 🎤 MIC
+ 
+ 
   void startListening() async {
     bool available = await speech.initialize();
 
@@ -74,7 +76,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
     setState(() => isListening = false);
   }
 
-  /// 📋 COPY
+
+
   void copyText(String text) {
     Clipboard.setData(ClipboardData(text: text));
 
@@ -83,7 +86,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
     ).showSnackBar(const SnackBar(content: Text("Copied")));
   }
 
-  /// 🌍 LANGUAGE NAME
+ 
+ 
   String getLangName(List languages, String code) {
     try {
       return languages.firstWhere((l) => l.language == code).name;
@@ -92,7 +96,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
     }
   }
 
-  /// 🌍 PICKER
+ 
+ 
   void showLanguagePicker(BuildContext context, List languages) {
     showModalBottomSheet(
       context: context,
@@ -137,7 +142,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
         color: Colors.grey.shade200,
         child: Column(
           children: [
-            /// 🌍 LANGUAGE BAR
+          
+          
             BlocBuilder<GetLanguagesModelBloc, GetLanguagesModelState>(
               builder: (context, state) {
                 if (state is GetLanguagesModelLoaded) {
@@ -152,13 +158,15 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        /// FROM
+                      
+                      
                         Text(
                           getLangName(languages, fromLang),
                           style: const TextStyle(fontSize: 36,fontWeight: FontWeight.bold,),
                         ),
 
-                        /// SWAP
+                      
+                      
                         IconButton(
                           icon: const Icon(Icons.arrow_forward),
                           onPressed: () {
@@ -170,7 +178,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                           },
                         ),
 
-                        /// TO
+                      
+                      
                         GestureDetector(
                           onTap: () => showLanguagePicker(context, languages),
                           child: Row(
@@ -194,21 +203,25 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
               },
             ),
 
-            /// DIVIDER
+         
+         
             Container(height: 1, color: Colors.grey.shade300),
 
-            /// INPUT AREA
+          
+          
             Expanded(
               child: Column(
                 children: [
-                  /// INPUT BOX
+                
+                
                   Container(
                     width: double.infinity,
                     color: Colors.white,
                     padding: const EdgeInsets.all(16),
                     child: Column(
                       children: [
-                        /// TOP ROW
+                      
+                      
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
@@ -235,7 +248,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                           ],
                         ),
 
-                        /// TEXT FIELD
+                       
+                       
                         TextField(
                           controller: controller,
                           maxLines: null,
@@ -248,7 +262,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                     ),
                   ),
 
-                  /// BUTTON
+                 
+                 
                   Container(
                     width: double.infinity,
                     color: Colors.grey.shade100,
@@ -267,7 +282,8 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                     ),
                   ),
 
-                  /// OUTPUT
+                 
+                 
                   Expanded(
                     child:
                         BlocBuilder<
@@ -291,7 +307,10 @@ class _TranslatorScreenState extends State<TranslatorScreen> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    /// HEADER
+                                  
+                                  
+                                    
+                                    
                                     Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,

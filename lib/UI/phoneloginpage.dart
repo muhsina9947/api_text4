@@ -15,7 +15,7 @@ class _PhoneloginpageState extends State<Phoneloginpage> {
 
   ConfirmationResult? confirmationResult;
 
-  /// ✅ SEND OTP
+ 
   Future<void> sendOTP() async {
     if (phoneController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
@@ -35,7 +35,7 @@ class _PhoneloginpageState extends State<Phoneloginpage> {
     }
   }
 
-  /// ✅ VERIFY OTP
+ 
   Future<void> verifyOTP() async {
     if (otpController.text.isEmpty) {
       ScaffoldMessenger.of(context).showSnackBar(
